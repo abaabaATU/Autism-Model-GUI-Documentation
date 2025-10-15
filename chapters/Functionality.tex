@@ -331,6 +331,26 @@ If the plot does not display correctly or appears distorted, resizing the figure
 
 \subsection{Save Run Results}
 
+To save the results of a single simulation run, use the keyboard shortcut \textbf{Command + S} (macOS) or \textbf{Ctrl + S} (Windows). Alternatively, navigate to \textbf{\texttt{File}} $\rightarrow$ \textbf{\texttt{Export}} $\rightarrow$ \textbf{\texttt{Run}} in the menu bar.
+
+When initiated, the GUI prompts for a destination directory. Upon selection, the system automatically creates a timestamped folder and saves all results within it, including a \texttt{.mat} file containing the simulation settings and numerical results.
+
+Figures are exported in both \texttt{.fig} (interactive) and \texttt{.png} (static) formats to support different use cases.
+
+\textbf{Important notes:}
+\begin{itemize}
+    \item Smoothed action rate and reward rate plots are not saved, as smoothing is applied only for visualization purposes. To preserve smoothed plots, use the popout window function and save them manually.
+    
+    \item The raw data used for plotting is not included in the export. Only the final figures and numerical results are saved.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figs/save_run.png}
+	\caption{Save Run Figures menu option in the File menu.}
+	\label{fig:save_run}
+\end{figure}
+
 \subsection{Save Batch Figures}
 
 You can quickly save all Batch plots across all block numbers as separate \texttt{.fig} files using the shortcut \textbf{Command + S} (on macOS) or \textbf{Ctrl + S} (on Windows).
@@ -350,6 +370,39 @@ Upon triggering this action, the GUI will prompt you to select a folder. Once a 
     \caption{Save Figures Menu Bar.}
     \label{fig:save}
 \end{figure}
+\subsection{Smoothing}
+Smoothing can be applied to plots through the menu bar option \textbf{\texttt{Tools}} $\rightarrow$ \textbf{\texttt{Smoothing}}. First, select the data type to smooth (e.g., \texttt{Simulation} or \texttt{Batch}), which opens a configuration window for specifying smoothing parameters.
+
+\noindent Select the desired smoothing method from the dropdown menu. Available options include:
+
+\begin{itemize}
+    \item \texttt{movmean} -- Moving average over a 2D window. Effective for reducing periodic trends in data.
+    
+    \item \texttt{movmedian} -- Moving median over a 2D window. Robust against outliers while reducing periodic trends.
+    
+    \item \texttt{gaussian} -- Gaussian-weighted moving average over a 2D window.
+    
+    \item \texttt{lowess} -- Locally weighted scatterplot smoothing using linear regression. Computationally intensive but produces smooth results with minimal discontinuities.
+    
+    \item \texttt{loess} -- Locally weighted scatterplot smoothing using quadratic regression. Slightly more computationally expensive than \texttt{lowess}.
+    
+    \item \texttt{sgolay} -- Savitzky-Golay filter that fits a quadratic polynomial over a 2D window. Particularly effective for rapidly varying data.
+    
+    \item \texttt{none} -- No smoothing applied. You may select this option to revert to the original data.
+\end{itemize}
+
+\noindent Specify the smoothing factor to control the window size. Larger values increase smoothing but may obscure fine details.
+
+Click the \texttt{Apply} button to process the selected data type. The plots will automatically update to display the smoothed data.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/smoothing.png}
+    \caption{Smoothing Window.}
+    \label{fig:smoothing}
+\end{figure}
 
 \subsection{Help}
-The \textbf{\texttt{Help}} menu provides access to the link to this documentation in GitHub, as well as contact information for support.
+The \textbf{\texttt{Help}} menu provides access to this documentation on GitHub and contains contact information for technical support.
+
+If GitHub does not display the PDF file directly in your browser, you can download it to your local machine and open it using a PDF viewer application.
