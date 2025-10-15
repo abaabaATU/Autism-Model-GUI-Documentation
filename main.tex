@@ -1,0 +1,70 @@
+\documentclass[a4paper, twoside, 11pt]{report}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tocbibind}
+
+%% Citation (Vancouver style)
+\usepackage[backend=biber, style=numeric, sorting=nyt, maxnames=3, minnames=1]{biblatex}
+\addbibresource{bibs/sample.bib}
+
+%% Page settings
+\usepackage[a4paper, top=3cm, bottom=2cm, left=3cm, right=3cm, marginparwidth=1.75cm]{geometry}
+\usepackage{parskip}
+\setlength{\parskip}{1em}
+
+%% Common packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+
+%% TikZ drawing
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+%% Custom packages for your document
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{dsfont}
+\usepackage{xcolor}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection.}{1em}{}
+
+\begin{document}
+
+\input{title/title.tex}
+\input{Abstract/Abstract.tex}
+\input{Acknowledgements/Acknowledgements.tex}
+
+\tableofcontents
+
+% Chapters
+\input{chapters/Introduction.tex}
+\input{chapters/Installation.tex}
+\input{chapters/GettingStarted.tex}
+\input{chapters/UserInterfaceOverview.tex}
+\input{chapters/Functionality.tex}
+\input{chapters/Troubleshooting.tex}
+\input{chapters/FAQs.tex}
+\input{chapters/TipsAndBestPractices.tex}
+\input{chapters/SupportAndContact.tex}
+\input{chapters/Conclusion.tex}
+\input{chapters/Appendix.tex}
+
+% Bibliography
+% \addcontentsline{toc}{chapter}{Bibliography}
+% \printbibliography
+
+\end{document}
